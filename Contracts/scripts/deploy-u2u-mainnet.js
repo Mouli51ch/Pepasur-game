@@ -18,7 +18,7 @@ async function main() {
   // Configuration for U2U Solaris Mainnet
   const serverSigner = deployer.address; // Use deployer as server signer for now
   const feeRecipient = deployer.address; // Use deployer as fee recipient for now
-  const houseCutBps = 500; // 5% house cut
+  const houseCutBps = 200; // 2% house cut
 
   console.log("📋 Deployment Configuration:");
   console.log("- Server Signer:", serverSigner);

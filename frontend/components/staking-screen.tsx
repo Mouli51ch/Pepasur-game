@@ -62,16 +62,16 @@ export default function StakingScreen({ gameId, playerAddress, onStakeSuccess, o
     address: address as `0x${string}`,
   })
 
-  // Ensure wallet is on U2U testnet before staking
+  // Ensure wallet is on U2U mainnet before staking
   const ensureCorrectChain = async () => {
-    if (chainId !== 2484) {
-      console.log('🔄 Switching to U2U testnet...')
+    if (chainId !== 39) {
+      console.log('🔄 Switching to U2U mainnet...')
       try {
-        await switchChain({ chainId: 2484 })
+        await switchChain({ chainId: 39 })
         return true
       } catch (error) {
         console.error('❌ Failed to switch chain:', error)
-        setError('Please switch to U2U Nebulas Testnet in your wallet')
+        setError('Please switch to U2U Solaris Mainnet in your wallet')
         return false
       }
     }
@@ -408,20 +408,20 @@ export default function StakingScreen({ gameId, playerAddress, onStakeSuccess, o
             <div className="space-y-1 sm:space-y-2">
               <div className="text-xs sm:text-sm font-press-start text-gray-300">NETWORK</div>
               <div className="text-base sm:text-lg font-bold text-white">
-                {chainId === 2484 ? '✅ U2U Nebulas Testnet' : '❌ Wrong Network'}
+                {chainId === 39 ? '✅ U2U Solaris Mainnet' : '❌ Wrong Network'}
               </div>
-              {chainId !== 2484 && (
+              {chainId !== 39 && (
                 <div className="text-xs sm:text-sm text-yellow-400">
-                  Please switch to U2U Nebulas Testnet
+                  Please switch to U2U Solaris Mainnet
                 </div>
               )}
-              {chainId !== 2484 && (
+              {chainId !== 39 && (
                 <Button
-                  onClick={() => switchChain({ chainId: 2484 })}
+                  onClick={() => switchChain({ chainId: 39 })}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm"
                   size="sm"
                 >
-                  Switch to U2U Testnet
+                  Switch to U2U Mainnet
                 </Button>
               )}
             </div>
@@ -476,7 +476,7 @@ export default function StakingScreen({ gameId, playerAddress, onStakeSuccess, o
           <div className="space-y-2 sm:space-y-3">
             <Button
               onClick={handleStake}
-              disabled={isStaking || isPending || isConfirming || !balanceInfo?.sufficient || (mode === 'join' && !roomCode.trim()) || chainId !== 2484}
+              disabled={isStaking || isPending || isConfirming || !balanceInfo?.sufficient || (mode === 'join' && !roomCode.trim()) || chainId !== 39}
               variant="pixel"
               size="pixelLarge"
               className="w-full"
