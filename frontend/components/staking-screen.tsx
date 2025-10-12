@@ -438,7 +438,7 @@ export default function StakingScreen({ gameId, playerAddress, onStakeSuccess, o
                 type="text"
                 value={roomCode}
                 onChange={(e) => setRoomCode(e.target.value.toUpperCase())}
-                placeholder="Enter 6-character room code"
+                placeholder="Enter room code"
                 maxLength={6}
                 className="font-press-start text-center text-sm sm:text-lg tracking-widest"
               />
@@ -506,9 +506,6 @@ export default function StakingScreen({ gameId, playerAddress, onStakeSuccess, o
           {/* Info */}
           <div className="text-xs text-gray-500 text-center space-y-0.5 sm:space-y-1">
             <div>• You need at least 0.1 U2U to stake</div>
-            <div>• Winners get 70% of prize pool</div>
-            <div>• Losers get 30% of prize pool</div>
-            <div>• 5% house cut applies</div>
           </div>
         </div>
       </Card>
